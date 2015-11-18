@@ -1,0 +1,21 @@
+<h2>{{vm.questionText}}</h2>
+
+<form name="multiSelect">
+    <div ng-repeat="answer in vm.responses" layout="row">
+        <md-checkbox ng-model="vm.answer[$index]" ng-change="vm.selectCheckBox(answer.Id, vm.answer[$index])" aria-label="answer.Content">
+            {{answer.Content}}
+        </md-checkbox>
+        <span flex></span>
+        <md-icon class="md-secondary" ng-click="vm.defineAnswer($event, answer.Description)" aria-label="Chat" md-svg-icon="/ng/assets/help.svg"></md-icon>
+    </div>
+
+</form>
+
+<md-button ng-if="!vm.lastQuestion() || !vm.stopper" ng-disabled="multiSelect.$pristine || !vm.userResponse.answer.length" ng-click="vm.goToNextQuestion()" class="md-raised md-primary">
+    Next Question <md-icon md-svg-icon="/ng/assets/next.svg"></md-icon>
+</md-button>
+
+
+<md-button ng-if="vm.lastQuestion()" ng-disabled="multiChoice.$pristine" ng-click="vm.saveSurvey($event)" class="md-raised md-accent">
+    Submit <md-icon md-svg-icon="/  ng/assets/next.svg"></md-icon>
+</md-button>

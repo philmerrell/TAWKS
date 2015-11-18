@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="tawks" ng-controller="AppController as app">
+<head>
+    <title ng-bind="pageTitle"></title>
+    <meta name="viewport" content="initial-scale=1" />
+    <!-- font awesome from BootstrapCDN -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+    <link rel='stylesheet' href='assets/angular-material.css'>
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+    <base href="/">
+</head>
+<body>
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <h3>TAWKS</h3>
+        </div>
+        <!--<md-button class="menu" hide-gt-sm ng-click="app.toggleList()" aria-label="Show Report List">-->
+            <!--<md-icon md-svg-icon="assets/menu.svg"></md-icon>-->
+        <!--</md-button>-->
+    </md-toolbar>
+    <div flex layout="row">
+        <!--<md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z1" md-component-id="left">-->
+            <!--<md-list>-->
+                <!--<md-content class="md-padding">-->
+                    <!--<b>Welcome, Phil</b><br>-->
+                    <!--<a href>logout</a><br>-->
+                    <!--<a href>settings</a>-->
+                <!--</md-content>-->
+                <!--<md-content class="md-padding"><h2>Reports:</h2></md-content>-->
+                <!--<md-divider></md-divider>-->
+
+                <!--<md-item>-->
+                    <!--<md-button ng-click="app.go('screen1')" style="width: 100%; font-weight: 500;" ng-class="{'selected' : it === ul.selected }">-->
+                        <!--Screen 1-->
+                    <!--</md-button>-->
+                <!--</md-item>-->
+                <!--<md-item>-->
+                    <!--<md-button ng-click="app.go('screen2')" style="width: 100%; font-weight: 500;" ng-class="{'selected' : it === ul.selected }">-->
+                        <!--Screen 2-->
+                    <!--</md-button>-->
+                <!--</md-item>-->
+                <!--<md-item>-->
+                    <!--<md-button ng-click="app.go('screen3')" style="width: 100%; font-weight: 500;" ng-class="{'selected' : it === ul.selected }">-->
+                        <!--Screen 3-->
+                    <!--</md-button>-->
+                <!--</md-item>-->
+                <!--<md-item>-->
+                    <!--<md-button ng-click="app.go('screen4')" style="width: 100%; font-weight: 500;" ng-class="{'selected' : it === ul.selected }">-->
+                        <!--Screen 4-->
+                    <!--</md-button>-->
+                <!--</md-item>-->
+            <!--</md-list>-->
+        <!--</md-sidenav>-->
+        <md-content flex layout-margin layout-fill layout-padding id="content">
+            <div class="container" ui-view="main"></div>
+        </md-content>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<h2>{{vm.questionText}}</h2>
+
+<form name="multiChoice">
+    <md-radio-group ng-model="vm.answer" class="md-primary">
+        <div ng-repeat="answer in vm.responses | orderBy:'Responses'" layout="row">
+            <md-radio-button value="{{answer.Id}}">{{answer.Content}}</md-radio-button>
+            <span flex></span>
+            <md-icon class="md-secondary" ng-click="vm.defineAnswer($event, answer.Description)" aria-label="Define" md-svg-icon="/ng/assets/help.svg"></md-icon>
+        </div>
+    </md-radio-group>
+
+</form>
+<md-button ng-if="!vm.lastQuestion()" ng-disabled="multiChoice.$pristine" ng-click="vm.selectRadio(vm.answer)" class="md-raised md-primary">
+    Next Question <md-icon md-svg-icon="/ng/assets/next.svg"></md-icon>
+</md-button>
+
+<md-button ng-if="vm.lastQuestion()" ng-disabled="multiChoice.$pristine" ng-click="vm.selectRadio(vm.answer, true, $event)" class="md-raised md-accent">
+    Submit <md-icon md-svg-icon="/ng/assets/next.svg"></md-icon>
+</md-button>
