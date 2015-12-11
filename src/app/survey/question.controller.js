@@ -110,7 +110,7 @@
             .ok('Okay')
             .targetEvent(ev)
         ).then(function() {
-            $window.location.href = 'https://tawks.azurewebsites.net';
+            $window.location.href = 'https://tawks.azurewebsites.net/Account/Profile';
           });
 
       }).catch(function(error) {
